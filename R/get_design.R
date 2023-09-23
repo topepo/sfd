@@ -1,0 +1,82 @@
+#' Retrieve a Space-Filling Design
+#'
+#' Obtain a design from
+#' [`https://www.spacefillingdesigns.nl/`](https://www.spacefillingdesigns.nl/)
+#' (if possible) based on how many characteristics (i.e. parameters) and size
+#' (i.e., number of grid points).
+#'
+#' @param num_param An integer between two and ten for the number of
+#' characteristics/factors/parameters in the design.
+#' @param num_points An integer for the number of grid points requested. If
+#' there is no corresponding design, an error is given (when using
+#' `get_design()`)
+#' @param type A character string with possible values> `"any"`,
+#' `"Audze-Eglais"`, `"max_min_l1"`, and `"max_min_l2"`, A value of `"any"` will
+#' choose the first design available (in alphabetical order).
+#' @return A tibble (data frame) with columns named `X1` to `X{num_param}`.
+#' Each column is an integer for the ordered value of the real parameter values.
+#' @references
+#' [`https://www.spacefillingdesigns.nl/`](https://www.spacefillingdesigns.nl/),
+#' Husslage, B. G., Rennen, G., Van Dam, E. R., & Den Hertog, D. (2011).
+#' Space-filling Latin hypercube designs for computer experiments. _Optimization
+#' and Engineering_, 12, 611-630.
+#' @examples
+#' if (rlang::is_installed("ggplot2")) {
+#'  library(ggplot2)
+#'
+#'  two_param_l2 <- get_design(2, 100, type = "Audze-Eglais")
+#'
+#'  ggplot(two_param_l2, aes(X1, X2)) +
+#'    geom_point() +
+#'    coord_equal()
+#' }
+#'
+#' no_design <- try(get_design(2, 1000), silent = TRUE)
+#' cat(as.character(no_design))
+#' @export
+get_design <- function(num_param, num_points, type = "any") {
+
+  type <- rlang::arg_match(type, c("any", "Audze-Eglais", "max_min_l1", "max_min_l2"))
+  if (num_param < 2 | num_param > 10) {
+    rlang::abort("Number of parameters must be in [2, 10]")
+  }
+  x <- sfd::sfd_lib[[num_param - 1]]
+  nearest <- closest_design(x, num_points)
+  x <- x[x$num_points == num_points, ]
+  if (nrow(x) == 0) {
+    msg <- glue::glue("No design with {num_points} points. The closest has {nearest} points.")
+    rlang::abort(msg)
+  }
+  types <- sort(unique(x$type))
+  if (type == "any") {
+    type <- types[1]
+  } else {
+    if (!(type %in% types)) {
+      msg <- glue::glue("There were no {type} designs. Try using \"type = 'any'\"")
+      rlang::abort(msg)
+    }
+  }
+  x <- x[x$type == type,]
+  x$type <- NULL
+  x$num_points <- NULL
+  x
+}
+
+closest_design <- function(x, num_points) {
+  avail <- unique(x$num_points)
+  avail[which.min(abs(avail - num_points))]
+}
+
+#' Is a Space-Filling Design Available?
+#'
+#' Determine if a design from
+#' [`https://www.spacefillingdesigns.nl/`](https://www.spacefillingdesigns.nl/)
+#' is available in this package based on how many characteristics (i.e.
+#' parameters), size (i.e., number of grid points), and type.
+#' @inheritParams get_design
+#' @return A logical
+#' @export
+sfd_available <- function(num_param, num_points, type = "any") {
+  res <- try(get_design(num_param, num_points, type), silent = TRUE)
+  !inherits(res, "try-error")
+}

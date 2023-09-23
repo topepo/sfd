@@ -1,0 +1,26 @@
+Package: sfd
+Title: Space-Filling Design Library
+Version: 0.0.0.9000
+Authors@R: 
+    person("Max", "Kuhn", , "mxkuhn@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-2402-136X"))
+Description: A collection of pre-optimized space-filling designs, for up
+    to ten parameters, is contained here. Functions are provided to access
+    designs described by <doi:10.1007/s11081-010-9129-8>.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests: 
+    ggplot2,
+    spelling,
+    testthat (>= 3.0.0)
+Language: en-US
+Depends: 
+    R (>= 2.10),
+    tibble
+LazyData: true
+Imports: 
+    glue,
+    rlang
+Config/testthat/edition: 3

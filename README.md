@@ -1,0 +1,44 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# sfd - Space-Filling Designs
+
+<!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/sfd)](https://CRAN.R-project.org/package=sfd)
+[![R-CMD-check](https://github.com/topepo/sfd/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/topepo/sfd/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/topepo/sfd/branch/main/graph/badge.svg)](https://app.codecov.io/gh/topepo/sfd?branch=main)
+<!-- badges: end -->
+
+The goal of sfd is to make available a number of pre-optimized
+space-filling designs (SFDs) originating from
+[`https://www.spacefillingdesigns.nl/`](https://www.spacefillingdesigns.nl/).
+While the original website offers no guarantee or license, they do state
+that
+
+> All these designs have been compared and the best designs are
+> collected on this website. They can be downloaded for free and used in
+> your specific simulation environment.
+
+The available designs in this package are for experiments where the
+number of parameters ranges from two to ten of types `"Audze-Eglais"`,
+`"max_min_l1"`, or `"max_min_l2"`.
+
+The package has a function to see if a design is available
+(`sfd_available()`) and to retrieve it (`get_design()`).
+
+## Installation
+
+You can install the development version of sfd like so:
+
+``` r
+pak::pak("topepo/sfd")
+```
+
+## Code of Conduct
+
+Please note that the sfd project is released with a [Contributor Code of
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
