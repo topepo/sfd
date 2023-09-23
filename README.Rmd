@@ -29,6 +29,55 @@ The available designs in this package are for experiments where the number of pa
 
 The package has a function to see if a design is available (`sfd_available()`) and to retrieve it (`get_design()`).
 
+The number of designs varies across type: 
+
+```{r}
+#| label: designs
+#| echo: false
+#| fig.height: 3
+#| fig.width: 8
+
+info <- tibble::tribble(
+           ~type, ~num_param, ~max_size,
+  "Audze-Eglais",         2L,      100L,
+    "max_min_l1",         2L,      500L,
+    "max_min_l2",         2L,      500L,
+  "Audze-Eglais",         3L,      100L,
+    "max_min_l1",         3L,       16L,
+    "max_min_l2",         3L,      300L,
+  "Audze-Eglais",         4L,      100L,
+    "max_min_l1",         4L,        7L,
+    "max_min_l2",         4L,      300L,
+  "Audze-Eglais",         5L,      100L,
+    "max_min_l1",         5L,        7L,
+    "max_min_l2",         5L,      100L,
+  "Audze-Eglais",         6L,      100L,
+    "max_min_l1",         6L,        7L,
+    "max_min_l2",         6L,      100L,
+  "Audze-Eglais",         7L,      100L,
+    "max_min_l1",         7L,        7L,
+    "max_min_l2",         7L,      100L,
+  "Audze-Eglais",         8L,      100L,
+    "max_min_l1",         8L,        7L,
+    "max_min_l2",         8L,      100L,
+  "Audze-Eglais",         9L,      100L,
+    "max_min_l1",         9L,        7L,
+    "max_min_l2",         9L,      100L,
+  "Audze-Eglais",        10L,      100L,
+    "max_min_l1",        10L,        7L,
+    "max_min_l2",        10L,      100L
+  )
+
+library(ggplot2)
+
+ggplot(info, aes(num_param, max_size)) + 
+  geom_point() + 
+  geom_step(direction = "vh") + 
+  facet_wrap(~ type) +
+  labs(x = "# Parameters", y = "Max. Grid Size") +
+  theme_bw()
+```
+
 ## Installation
 
 You can install the development version of sfd like so:

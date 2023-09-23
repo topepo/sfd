@@ -29,6 +29,10 @@ number of parameters ranges from two to ten of types `"Audze-Eglais"`,
 The package has a function to see if a design is available
 (`sfd_available()`) and to retrieve it (`get_design()`).
 
+The number of designs varies across type:
+
+<img src="man/figures/README-designs-1.png" width="100%" />
+
 ## Installation
 
 You can install the development version of sfd like so:
