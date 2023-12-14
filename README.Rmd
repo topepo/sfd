@@ -25,7 +25,7 @@ The goal of sfd is to make available a number of pre-optimized space-filling des
 
 > All these designs have been compared and the best designs are collected on this website. They can be downloaded for free and used in your specific simulation environment.
 
-The available designs in this package are for experiments where the number of parameters ranges from two to ten of types `"Audze-Eglais"`,  `"max_min_l1"`, or `"max_min_l2"`. 
+The available designs in this package are for experiments where the number of parameters ranges from two to ten of types `"audze_eglais"`,  `"max_min_l1"`, or `"max_min_l2"`. 
 
 The package has a function to see if a design is available (`sfd_available()`) and to retrieve it (`get_design()`).
 
@@ -39,31 +39,31 @@ The number of designs varies across type:
 
 info <- tibble::tribble(
            ~type, ~num_param, ~max_size,
-  "Audze-Eglais",         2L,      100L,
+  "audze_eglais",         2L,      100L,
     "max_min_l1",         2L,      500L,
     "max_min_l2",         2L,      500L,
-  "Audze-Eglais",         3L,      100L,
+  "audze_eglais",         3L,      100L,
     "max_min_l1",         3L,       16L,
     "max_min_l2",         3L,      300L,
-  "Audze-Eglais",         4L,      100L,
+  "audze_eglais",         4L,      100L,
     "max_min_l1",         4L,        7L,
     "max_min_l2",         4L,      300L,
-  "Audze-Eglais",         5L,      100L,
+  "audze_eglais",         5L,      100L,
     "max_min_l1",         5L,        7L,
     "max_min_l2",         5L,      100L,
-  "Audze-Eglais",         6L,      100L,
+  "audze_eglais",         6L,      100L,
     "max_min_l1",         6L,        7L,
     "max_min_l2",         6L,      100L,
-  "Audze-Eglais",         7L,      100L,
+  "audze_eglais",         7L,      100L,
     "max_min_l1",         7L,        7L,
     "max_min_l2",         7L,      100L,
-  "Audze-Eglais",         8L,      100L,
+  "audze_eglais",         8L,      100L,
     "max_min_l1",         8L,        7L,
     "max_min_l2",         8L,      100L,
-  "Audze-Eglais",         9L,      100L,
+  "audze_eglais",         9L,      100L,
     "max_min_l1",         9L,        7L,
     "max_min_l2",         9L,      100L,
-  "Audze-Eglais",        10L,      100L,
+  "audze_eglais",        10L,      100L,
     "max_min_l1",        10L,        7L,
     "max_min_l2",        10L,      100L
   )

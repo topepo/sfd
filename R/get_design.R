@@ -11,7 +11,7 @@
 #' there is no corresponding design, an error is given (when using
 #' `get_design()`)
 #' @param type A character string with possible values> `"any"`,
-#' `"Audze-Eglais"`, `"max_min_l1"`, and `"max_min_l2"`, A value of `"any"` will
+#' `"audze_eglais"`, `"max_min_l1"`, and `"max_min_l2"`, A value of `"any"` will
 #' choose the first design available (in alphabetical order).
 #' @return A tibble (data frame) with columns named `X1` to `X{num_param}`.
 #' Each column is an integer for the ordered value of the real parameter values.
@@ -24,7 +24,7 @@
 #' if (rlang::is_installed("ggplot2")) {
 #'  library(ggplot2)
 #'
-#'  two_param_l2 <- get_design(2, 100, type = "Audze-Eglais")
+#'  two_param_l2 <- get_design(2, 100, type = "audze_eglais")
 #'
 #'  ggplot(two_param_l2, aes(X1, X2)) +
 #'    geom_point() +
@@ -36,7 +36,7 @@
 #' @export
 get_design <- function(num_param, num_points, type = "any") {
 
-  type <- rlang::arg_match(type, c("any", "Audze-Eglais", "max_min_l1", "max_min_l2"))
+  type <- rlang::arg_match(type, c("any", "audze_eglais", "max_min_l1", "max_min_l2"))
   if (num_param < 2 | num_param > 10) {
     rlang::abort("Number of parameters must be in [2, 10]")
   }
@@ -51,7 +51,7 @@ get_design <- function(num_param, num_points, type = "any") {
     type <- types[1]
   } else {
     if (!(type %in% types)) {
-      cli::cli_abort("There were no {.val type} designs. Try using {.code type = 'any'}.")
+      cli::cli_abort("There were no {.val {type}} designs. Try using {.code type = 'any'}.")
     }
   }
   x <- x[x$type == type,]

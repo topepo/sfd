@@ -28,5 +28,5 @@
       get_design(3, 69, type = "max_min_l1")
     Condition
       Error in `get_design()`:
-      ! There were no max_min_l1 designs. Try using "type = 'any'"
+      ! There were no "max_min_l1" designs. Try using `type = 'any'`.
 

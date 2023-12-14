@@ -15,7 +15,7 @@ there is no corresponding design, an error is given (when using
 \code{get_design()})}
 
 \item{type}{A character string with possible values> \code{"any"},
-\code{"Audze-Eglais"}, \code{"max_min_l1"}, and \code{"max_min_l2"}, A value of \code{"any"} will
+\code{"audze_eglais"}, \code{"max_min_l1"}, and \code{"max_min_l2"}, A value of \code{"any"} will
 choose the first design available (in alphabetical order).}
 }
 \value{
@@ -32,7 +32,7 @@ Obtain a design from
 if (rlang::is_installed("ggplot2")) {
  library(ggplot2)
 
- two_param_l2 <- get_design(2, 100, type = "Audze-Eglais")
+ two_param_l2 <- get_design(2, 100, type = "audze_eglais")
 
  ggplot(two_param_l2, aes(X1, X2)) +
    geom_point() +

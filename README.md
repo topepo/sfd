@@ -23,7 +23,7 @@ that
 > your specific simulation environment.
 
 The available designs in this package are for experiments where the
-number of parameters ranges from two to ten of types `"Audze-Eglais"`,
+number of parameters ranges from two to ten of types `"audze_eglais"`,
 `"max_min_l1"`, or `"max_min_l2"`.
 
 The package has a function to see if a design is available

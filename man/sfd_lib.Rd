@@ -23,7 +23,7 @@ simulation environment".
 }
 \details{
 The available designs in this package are for experiments where the number
-of parameters ranges from two to ten of types "Audze-Eglais",  "max_min_l1",
+of parameters ranges from two to ten of types "audze_eglais",  "max_min_l1",
 or "max_min_l2". See Husslage \emph{et al} (2011).
 
 The format is a list with nine elements for dimensions of two to ten
