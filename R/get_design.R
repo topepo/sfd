@@ -44,16 +44,14 @@ get_design <- function(num_param, num_points, type = "any") {
   nearest <- closest_design(x, num_points)
   x <- x[x$num_points == num_points, ]
   if (nrow(x) == 0) {
-    msg <- glue::glue("No design with {num_points} points. The closest has {nearest} points.")
-    rlang::abort(msg)
+    cli::cli_abort("No design with {num_points} points. The closest has {nearest} points.")
   }
   types <- sort(unique(x$type))
   if (type == "any") {
     type <- types[1]
   } else {
     if (!(type %in% types)) {
-      msg <- glue::glue("There were no {type} designs. Try using \"type = 'any'\"")
-      rlang::abort(msg)
+      cli::cli_abort("There were no {.val type} designs. Try using {.code type = 'any'}.")
     }
   }
   x <- x[x$type == type,]
@@ -75,6 +73,9 @@ closest_design <- function(x, num_points) {
 #' parameters), size (i.e., number of grid points), and type.
 #' @inheritParams get_design
 #' @return A logical
+#' @examples
+#' sfd_available(2, 10)
+#' sfd_available(2, 10^5)
 #' @export
 sfd_available <- function(num_param, num_points, type = "any") {
   res <- try(get_design(num_param, num_points, type), silent = TRUE)

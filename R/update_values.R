@@ -22,26 +22,26 @@
 update_values <- function(design, values) {
   n <- nrow(design)
   p <- ncol(design)
-  values <- check_values(n, p, values)
+  values <- check_values(n, p, values, call = rlang::caller_env())
   for (i in 1:p) {
     design[[i]] <- values[[i]][ design[[i]] ]
   }
   design
 }
 
-check_values <- function(n, p, values) {
+check_values <- function(n, p, values, call) {
   if (!is.list(values)) {
-    rlang::abort("'values' should be a list.")
+    cli::cli_abort("{.arg values} should be a list.", call = call)
   }
 
   if (length(values) != p) {
-    rlang::abort(glue::glue("The list of values should have {p} elements."))
+    cli::cli_abort("The list of values should have {p} elements.", call = call)
   }
 
   values <- lapply(values, function(x) sort(x))
   num_vals <- vapply(values, length, integer(1))
   if (any(num_vals != n)) {
-    rlang::abort(glue::glue("Some elements of 'values' do not have {n} values."))
+    cli::cli_abort("Some elements of {.arg values} do not have {n} values.", call = call)
   }
   values
 }

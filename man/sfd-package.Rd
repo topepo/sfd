@@ -6,7 +6,7 @@
 \alias{sfd-package}
 \title{sfd: Space-Filling Design Library}
 \description{
-A collection of pre-optimized space-filling designs, for up to ten parameters, is contained here. Functions are provided to access designs described by \doi{10.1007/s11081-010-9129-8}.
+A collection of pre-optimized space-filling designs, for up to ten parameters, is contained here. Functions are provided to access designs described by \doi{10.1007/s11081-010-9129-8}. The design types included are Audze-Eglais and MaxiMin.
 }
 \author{
 \strong{Maintainer}: Max Kuhn \email{mxkuhn@gmail.com} (\href{https://orcid.org/0000-0003-2402-136X}{ORCID})

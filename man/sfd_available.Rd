@@ -27,3 +27,7 @@ Determine if a design from
 is available in this package based on how many characteristics (i.e.
 parameters), size (i.e., number of grid points), and type.
 }
+\examples{
+sfd_available(2, 10)
+sfd_available(2, 10^5)
+}
