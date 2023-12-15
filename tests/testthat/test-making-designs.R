@@ -14,7 +14,7 @@ test_that("accessing designs", {
   )
 
   expect_snapshot(
-    get_design(11, 5),
+    get_design(16, 5),
     error = TRUE
   )
   expect_snapshot(

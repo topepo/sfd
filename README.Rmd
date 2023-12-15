@@ -2,8 +2,6 @@
 output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -21,11 +19,11 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/topepo/sfd/branch/main/graph/badge.svg)](https://app.codecov.io/gh/topepo/sfd?branch=main)
 <!-- badges: end -->
 
-The goal of sfd is to make available a number of pre-optimized space-filling designs (SFDs) originating from [`https://www.spacefillingdesigns.nl/`](https://www.spacefillingdesigns.nl/). While the original website offers no guarantee or license, they do state that
+The goal of sfd is to make available a number of pre-optimized space-filling designs (SFDs) originating from [`https://www.spacefillingdesigns.nl/`](https://www.spacefillingdesigns.nl/) and the `mixtox` package. For the former, the original website offers no guarantee or license but does state that
 
 > All these designs have been compared and the best designs are collected on this website. They can be downloaded for free and used in your specific simulation environment.
 
-The available designs in this package are for experiments where the number of parameters ranges from two to ten of types `"audze_eglais"`,  `"max_min_l1"`, or `"max_min_l2"`. 
+The available designs in this package are for experiments where the number of parameters ranges from two to 15 of types `"audze_eglais"`,  `"max_min_l1"`, `"max_min_l2"`, `"max_min_l1`", and `"uniform"`. 
 
 The package has a function to see if a design is available (`sfd_available()`) and to retrieve it (`get_design()`).
 
@@ -73,16 +71,22 @@ library(ggplot2)
 ggplot(info, aes(num_param, max_size)) + 
   geom_point() + 
   geom_step(direction = "vh") + 
-  facet_wrap(~ type) +
+  facet_wrap(~ type, nrow = 1) +
   labs(x = "# Parameters", y = "Max. Grid Size") +
   theme_bw()
 ```
 
 ## Installation
 
+The package can be installed from CRAN using
+
+```r
+install.packages("sfd")
+```
+
 You can install the development version of sfd like so:
 
-``` r
+```r
 pak::pak("topepo/sfd")
 ```
 

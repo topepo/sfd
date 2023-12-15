@@ -4,15 +4,15 @@
       get_design(1, 5)
     Condition
       Error in `get_design()`:
-      ! Number of parameters must be in [2, 10]
+      ! Number of parameters must be in [2, 15]
 
 ---
 
     Code
-      get_design(11, 5)
+      get_design(16, 5)
     Condition
       Error in `get_design()`:
-      ! Number of parameters must be in [2, 10]
+      ! Number of parameters must be in [2, 15]
 
 ---
 

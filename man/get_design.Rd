@@ -15,18 +15,23 @@ there is no corresponding design, an error is given (when using
 \code{get_design()})}
 
 \item{type}{A character string with possible values> \code{"any"},
-\code{"audze_eglais"}, \code{"max_min_l1"}, and \code{"max_min_l2"}, A value of \code{"any"} will
-choose the first design available (in alphabetical order).}
+\code{"audze_eglais"}, \code{"max_min_l1"}, \code{"max_min_l2"}, and \code{"uniform"}. A value
+of \code{"any"} will choose the first design available (in alphabetical order).}
 }
 \value{
 A tibble (data frame) with columns named \code{X1} to \verb{X\{num_param\}}.
 Each column is an integer for the ordered value of the real parameter values.
 }
 \description{
-Obtain a design from
-\url{https://www.spacefillingdesigns.nl/}
-(if possible) based on how many characteristics (i.e. parameters) and size
-(i.e., number of grid points).
+Obtain a space-filling design (if possible) based on how many characteristics
+(i.e. parameters) and size (i.e., number of grid points).
+}
+\details{
+The \code{"audze_eglais"}, \code{"max_min_l1"}, and \code{"max_min_l2"} designs are from
+\url{https://www.spacefillingdesigns.nl/}.
+
+The uniform designs were pre-computed using \code{\link[mixtox:unidTab]{mixtox::unidTab()}} using the
+method of Wang and Fang (2005) using the C2 criterion.
 }
 \examples{
 if (rlang::is_installed("ggplot2")) {
@@ -47,4 +52,6 @@ cat(as.character(no_design))
 Husslage, B. G., Rennen, G., Van Dam, E. R., & Den Hertog, D. (2011).
 Space-filling Latin hypercube designs for computer experiments. \emph{Optimization
 and Engineering}, 12, 611-630.
+Wang, Y., & Fang, K. (2005). Uniform design of experiments with mixtures.
+In \emph{Selected Papers Of Wang Yuan}, 468-479.
 }
