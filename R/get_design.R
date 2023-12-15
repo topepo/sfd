@@ -59,7 +59,8 @@ get_design <- function(num_param, num_points, type = "any") {
     type <- types[1]
   } else {
     if (!(type %in% types)) {
-      cli::cli_abort("There were no {.val {type}} designs. Try using {.code type = 'any'}.")
+      cli::cli_abort("There were no {.val {type}} designs with {num_points}
+                      design points. Try using {.code type = 'any'}.")
     }
   }
   x <- x[x$type == type,]

@@ -22,7 +22,7 @@ test_that("accessing designs", {
     error = TRUE
   )
   expect_snapshot(
-    get_design(3, 69, type = "max_min_l1"),
+    get_design(3,70, type = "max_min_l1"),
     error = TRUE
   )
 })
