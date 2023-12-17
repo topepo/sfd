@@ -2,8 +2,6 @@
 output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -21,11 +19,11 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/topepo/sfd/branch/main/graph/badge.svg)](https://app.codecov.io/gh/topepo/sfd?branch=main)
 <!-- badges: end -->
 
-The goal of sfd is to make available a number of pre-optimized space-filling designs (SFDs) originating from [`https://www.spacefillingdesigns.nl/`](https://www.spacefillingdesigns.nl/). While the original website offers no guarantee or license, they do state that
+The goal of sfd is to make available a number of pre-optimized space-filling designs (SFDs) originating from [`https://www.spacefillingdesigns.nl/`](https://www.spacefillingdesigns.nl/) and the `mixtox` package. For the former, the original website offers no guarantee or license but does state that
 
 > All these designs have been compared and the best designs are collected on this website. They can be downloaded for free and used in your specific simulation environment.
 
-The available designs in this package are for experiments where the number of parameters ranges from two to ten of types `"audze_eglais"`,  `"max_min_l1"`, or `"max_min_l2"`. 
+The available designs in this package are for experiments where the number of parameters ranges from two to 15 of types `"audze_eglais"`,  `"max_min_l1"`, `"max_min_l2"`, `"max_min_l1`", and `"uniform"`. 
 
 The package has a function to see if a design is available (`sfd_available()`) and to retrieve it (`get_design()`).
 
@@ -38,34 +36,48 @@ The number of designs varies across type:
 #| fig.width: 8
 
 info <- tibble::tribble(
-           ~type, ~num_param, ~max_size,
-  "audze_eglais",         2L,      100L,
-    "max_min_l1",         2L,      500L,
-    "max_min_l2",         2L,      500L,
-  "audze_eglais",         3L,      100L,
-    "max_min_l1",         3L,       16L,
-    "max_min_l2",         3L,      300L,
-  "audze_eglais",         4L,      100L,
-    "max_min_l1",         4L,        7L,
-    "max_min_l2",         4L,      300L,
-  "audze_eglais",         5L,      100L,
-    "max_min_l1",         5L,        7L,
-    "max_min_l2",         5L,      100L,
-  "audze_eglais",         6L,      100L,
-    "max_min_l1",         6L,        7L,
-    "max_min_l2",         6L,      100L,
-  "audze_eglais",         7L,      100L,
-    "max_min_l1",         7L,        7L,
-    "max_min_l2",         7L,      100L,
-  "audze_eglais",         8L,      100L,
-    "max_min_l1",         8L,        7L,
-    "max_min_l2",         8L,      100L,
-  "audze_eglais",         9L,      100L,
-    "max_min_l1",         9L,        7L,
-    "max_min_l2",         9L,      100L,
-  "audze_eglais",        10L,      100L,
-    "max_min_l1",        10L,        7L,
-    "max_min_l2",        10L,      100L
+  ~num_param,          ~type, ~max_size,
+          2L, "audze_eglais",      100L,
+          2L,   "max_min_l1",      500L,
+          2L,   "max_min_l2",      500L,
+          2L,      "uniform",      150L,
+          3L, "audze_eglais",      100L,
+          3L,   "max_min_l1",       16L,
+          3L,   "max_min_l2",      300L,
+          3L,      "uniform",      150L,
+          4L, "audze_eglais",      100L,
+          4L,   "max_min_l1",        7L,
+          4L,   "max_min_l2",      300L,
+          4L,      "uniform",      150L,
+          5L, "audze_eglais",      100L,
+          5L,   "max_min_l1",        7L,
+          5L,   "max_min_l2",      100L,
+          5L,      "uniform",      150L,
+          6L, "audze_eglais",      100L,
+          6L,   "max_min_l1",        7L,
+          6L,   "max_min_l2",      100L,
+          6L,      "uniform",      150L,
+          7L, "audze_eglais",      100L,
+          7L,   "max_min_l1",        7L,
+          7L,   "max_min_l2",      100L,
+          7L,      "uniform",      150L,
+          8L, "audze_eglais",      100L,
+          8L,   "max_min_l1",        7L,
+          8L,   "max_min_l2",      100L,
+          8L,      "uniform",      150L,
+          9L, "audze_eglais",      100L,
+          9L,   "max_min_l1",        7L,
+          9L,   "max_min_l2",      100L,
+          9L,      "uniform",      150L,
+         10L, "audze_eglais",      100L,
+         10L,   "max_min_l1",        7L,
+         10L,   "max_min_l2",      100L,
+         10L,      "uniform",      150L,
+         11L,      "uniform",      150L,
+         12L,      "uniform",      150L,
+         13L,      "uniform",      150L,
+         14L,      "uniform",      150L,
+         15L,      "uniform",      150L
   )
 
 library(ggplot2)
@@ -73,16 +85,22 @@ library(ggplot2)
 ggplot(info, aes(num_param, max_size)) + 
   geom_point() + 
   geom_step(direction = "vh") + 
-  facet_wrap(~ type) +
+  facet_wrap(~ type, nrow = 1) +
   labs(x = "# Parameters", y = "Max. Grid Size") +
   theme_bw()
 ```
 
 ## Installation
 
+The package can be installed from CRAN using
+
+```r
+install.packages("sfd")
+```
+
 You can install the development version of sfd like so:
 
-``` r
+```r
 pak::pak("topepo/sfd")
 ```
 

@@ -15,8 +15,8 @@ there is no corresponding design, an error is given (when using
 \code{get_design()})}
 
 \item{type}{A character string with possible values> \code{"any"},
-\code{"audze_eglais"}, \code{"max_min_l1"}, and \code{"max_min_l2"}, A value of \code{"any"} will
-choose the first design available (in alphabetical order).}
+\code{"audze_eglais"}, \code{"max_min_l1"}, \code{"max_min_l2"}, and \code{"uniform"}. A value
+of \code{"any"} will choose the first design available (in alphabetical order).}
 }
 \value{
 A logical
