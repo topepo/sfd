@@ -15,8 +15,9 @@
 <meta property="og:description" content="
     A collection of pre-optimized space-filling designs, for up to ten 
     parameters, is contained here. Functions are provided to access designs 
-    described by Husslage et al (2011) &lt;doi:10.1007/s11081-010-9129-8&gt;. 
-    The design types included are Audze-Eglais and MaxiMin.">
+    described by Husslage et al (2011) &lt;doi:10.1007/s11081-010-9129-8&gt; and
+    Wang and Fang (2005) &lt;doi:10.1142/9789812701190_0040&gt;. The design types 
+    included are Audze-Eglais, MaxiMin, and uniform.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -46,6 +47,9 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="news/index.html">Changelog</a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
 </div>
@@ -64,19 +68,22 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of sfd is to make available a number of pre-optimized space-filling designs (SFDs) originating from <a href="https://www.spacefillingdesigns.nl/" class="external-link"><code>https://www.spacefillingdesigns.nl/</code></a>. While the original website offers no guarantee or license, they do state that</p>
+<p>The goal of sfd is to make available a number of pre-optimized space-filling designs (SFDs) originating from <a href="https://www.spacefillingdesigns.nl/" class="external-link"><code>https://www.spacefillingdesigns.nl/</code></a> and the <code>mixtox</code> package. For the former, the original website offers no guarantee or license but does state that</p>
 <blockquote>
 <p>All these designs have been compared and the best designs are collected on this website. They can be downloaded for free and used in your specific simulation environment.</p>
 </blockquote>
-<p>The available designs in this package are for experiments where the number of parameters ranges from two to ten of types <code>"audze_eglais"</code>, <code>"max_min_l1"</code>, or <code>"max_min_l2"</code>.</p>
+<p>The available designs in this package are for experiments where the number of parameters ranges from two to 15 of types <code>"audze_eglais"</code>, <code>"max_min_l1"</code>, <code>"max_min_l2"</code>, <code>"max_min_l1</code>“, and <code>"uniform"</code>.</p>
 <p>The package has a function to see if a design is available (<code><a href="reference/sfd_available.html">sfd_available()</a></code>) and to retrieve it (<code><a href="reference/get_design.html">get_design()</a></code>).</p>
 <p>The number of designs varies across type:</p>
 <p><img src="reference/figures/README-designs-1.png" width="100%"></p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of sfd like so:</p>
+<p>The package can be installed from CRAN using</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"sfd"</span><span class="op">)</span></span></code></pre></div>
+<p>You can install the development version of sfd like so:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"topepo/sfd"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
