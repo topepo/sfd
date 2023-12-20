@@ -11,6 +11,8 @@ Description:
     Wang and Fang (2005) <doi:10.1142/9789812701190_0040>. The design types 
     included are Audze-Eglais, MaxiMin, and uniform.
 License: MIT + file LICENSE
+URL: https://topepo.github.io/sfd/, https://github.com/topepo/sfd
+BugReports: https://github.com/topepo/sfd/issues
 Depends: 
     R (>= 2.10),
     tibble
