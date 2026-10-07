@@ -11,5 +11,10 @@ A collection of pre-optimized space-filling designs, for up to ten parameters, i
 \author{
 \strong{Maintainer}: Max Kuhn \email{mxkuhn@gmail.com} (\href{https://orcid.org/0000-0003-2402-136X}{ORCID})
 
+Authors:
+\itemize{
+  \item Max Kuhn \email{mxkuhn@gmail.com} (\href{https://orcid.org/0000-0003-2402-136X}{ORCID})
+}
+
 }
 \keyword{internal}

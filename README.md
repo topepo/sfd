@@ -20,6 +20,12 @@ guarantee or license but does state that
 > collected on this website. They can be downloaded for free and used in
 > your specific simulation environment.
 
+Via personal correspondence with the design owners, the license for
+these designs is now Creative Commons Attribution 4.0 International
+license (CC-BY-4.0), as specified in the package file `LICENSE-DESIGNS`.
+
+## Designs
+
 The available designs in this package are for experiments where the
 number of parameters ranges from two to 15 of types `"audze_eglais"`,
 `"max_min_l1"`, `"max_min_l2"`, `"max_min_l1`“, and `"uniform"`.
@@ -29,7 +35,7 @@ The package has a function to see if a design is available
 
 The number of designs varies across type:
 
-<img src="man/figures/README-designs-1.png" width="100%" />
+<img src="man/figures/README-designs-1.png" alt="" width="100%" />
 
 ## Installation
 
