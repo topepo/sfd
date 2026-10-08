@@ -7,6 +7,11 @@
 #' this website. They can be downloaded for free and used in your specific
 #' simulation environment".
 #'
+#' Further correspondence on 2026-10-05 with the creators of the designs and
+#' Charles Plessy indicated that the designs can be licensed under the Creative
+#' Commons Attribution 4.0 International license (CC-BY-4.0), as specified in
+#' the package file `LICENSE-DESIGNS`.
+#'
 #' The available designs in this package are for experiments where the number
 #' of parameters ranges from two to ten of types "audze_eglais",  "max_min_l1",
 #' or "max_min_l2". See Husslage _et al_ (2011).
